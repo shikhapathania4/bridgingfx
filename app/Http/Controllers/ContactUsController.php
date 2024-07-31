@@ -21,9 +21,8 @@ class ContactUsController extends Controller
         $submission = ContactUs::create($validated);
 
         Mail::to($validated['email'])->send(new \App\Mail\UserThankYouMail($submission));
-        //recruitment@bridgingfx.net
 
-        Mail::to('tanujapathania333@gmail.com')->send(new \App\Mail\AdminNotificationMail($submission));
+        Mail::to('recruitment@bridgingfx.net')->send(new \App\Mail\AdminNotificationMail($submission));
 
         return redirect()->back()->with('success', 'Your message has been sent successfully!');
 
